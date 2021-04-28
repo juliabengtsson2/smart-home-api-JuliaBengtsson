@@ -90,10 +90,10 @@ app.get('/camera/off', (req, res) => {
 })
 
 // Lock - front door
-app.get('/frontdoor/lock', (req, res) => {
+app.get('/frontdoor/locked', (req, res) => {
     db.get('devices')
     .find({ id: 'LOC1' })
-    .assign({ lock: true })
+    .assign({ locked: false })
     .value();
 
     update();
@@ -104,7 +104,7 @@ app.get('/frontdoor/lock', (req, res) => {
 app.get('/frontdoor/unlocked', (req, res) => {
     db.get('devices')
     .find({ id: 'LOC1' })
-    .assign({ lock: false })
+    .assign({ locked: true })
     .value();
 
     update();
