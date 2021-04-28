@@ -161,7 +161,7 @@ app.get('/light/on/:id', (req, res) => {
 
     db.get('devices')
     .find({ id: id })
-    .assign({ on: true })
+    .assign({ on: true, brigthness: 0.5 })
     .value();
 
     update();
