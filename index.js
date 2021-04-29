@@ -1,16 +1,6 @@
 const { app } = require('./core'); 
 const { db, update } = require('./db');
 
-/* 
-    db
-    .get('devices')
-    .find({ id : id })
-    .assign({ on : true }) // Turn on the device
-    .value();
-
-    update(); // tell frontend to update state.
-*/
-
 app.listen(3000, () => {
     console.log('API for smart home 1.1 up n running.')
 })
@@ -35,7 +25,7 @@ app.get('/AC/on', (req, res) => {
 });
 
 // AC - off
-app.get('/AC/off', (req, res) => {
+app.put('/AC/off', (req, res) => {
     db.get('devices')
     .find({ id: "AC1"})
     .assign({ on: false})
@@ -57,7 +47,7 @@ app.get('/Blind/on', (req, res) => {
 })
 
 // Blind - off
-app.get('/Blind/off', (req, res) => {
+app.put('/Blind/off', (req, res) => {
     db.get('devices')
     .find({ id: 'BLI1' })
     .assign({ on: false })
@@ -79,7 +69,7 @@ app.get('/camera/on', (req, res) => {
 })
 
 // Kamera - off
-app.get('/camera/off', (req, res) => {
+app.put('/camera/off', (req, res) => {
     db.get('devices')
     .find({ id: 'CAM1' })
     .assign({ on: false })
@@ -123,7 +113,7 @@ app.get('/vaccum/on', (req, res) => {
 })
 
 // Vaccum - off
-app.get('/vaccum/off', (req, res) => {
+app.put('/vaccum/off', (req, res) => {
     db.get('devices')
     .find({ id: 'VAC1' })
     .assign({ on: false })
@@ -145,7 +135,7 @@ app.get('/speaker/on', (req, res) => {
 })
 
 // Speaker - off
-app.get('/speaker/off', (req, res) => {
+app.put('/speaker/off', (req, res) => {
     db.get('devices')
     .find({ id: 'SPE1' })
     .assign({ on: false })
@@ -169,7 +159,7 @@ app.get('/light/on/:id', (req, res) => {
 })
 
 // lamporna - off
-app.get('/light/off/:id', (req, res) => {
+app.put('/light/off/:id', (req, res) => {
     let {id} = req.params
     
     db.get('devices')
