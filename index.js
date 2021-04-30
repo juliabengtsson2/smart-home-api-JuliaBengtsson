@@ -16,12 +16,12 @@ app.get('/devices', (req, res) => {
 // AC - on
 app.get('/AC/on', (req, res) => {
     db.get('devices')
-    .find({ id: "AC1" })
-    .assign({ on: true })
+    .find({ id: "AC1" }) // Letar efter ett specifikt ID
+    .assign({ on: true }) // Sätter värdet till antingen true/false beroende på om den ska sättas på eller stängas av.
     .value();
 
-    update();
-    res.send('AC är på!');
+    update(); // Uppdaterar browsern
+    res.send('AC är på!'); // Skickar ut en meddelande i insomnia vad som sker.
 });
 
 // AC - off
