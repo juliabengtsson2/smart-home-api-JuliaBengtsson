@@ -1,5 +1,5 @@
 const { app } = require('./core'); 
-const { db, update } = require('./db');
+const { db, update } = require('./db'); // Importerar filer och metoder
 
 app.listen(3000, () => {
     console.log('API for smart home 1.1 up n running.')
@@ -20,7 +20,7 @@ app.get('/AC/on', (req, res) => {
     .assign({ on: true }) // Sätter värdet till antingen true/false beroende på om den ska sättas på eller stängas av.
     .value();
 
-    update(); // Uppdaterar browsern
+    update(); // Uppdaterar statet, browsern
     res.send('AC är på!'); // Skickar ut en meddelande i insomnia vad som sker.
 });
 
