@@ -147,11 +147,11 @@ app.put('/speaker/off', (req, res) => {
 
 // lamporna - on
 app.get('/light/on/:id', (req, res) => {
-    let {id} = req.params
+    let {id} = req.params 
 
     db.get('devices')
     .find({ id: id })
-    .assign({ on: true, brigthness: 0.5 })
+    .assign({ on: true, brigthness: 0.5 }) // Lägger till en brigthness på lamporna när dem är tända
     .value();
 
     update();
