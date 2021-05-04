@@ -169,4 +169,4 @@ app.put('/light/off/:id', (req, res) => {
 
     update();
     res.send('Lampan är släckt!');
-})
+}) 
